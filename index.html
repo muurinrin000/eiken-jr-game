@@ -178,10 +178,6 @@
 </div>
 
 <script>
-$("soundTestBtn").onclick = () => {
-  speak("Can you hear me?", "en-US", 0.8);
-};
-  
 (function(){
   const words = [
     { icon:"🍎", en:"apple", jp:"りんご" },
@@ -391,6 +387,9 @@ if (voice) u.voice = voice;
   $("normalBtn").onclick = speakEnNormal;
   $("jpBtn").onclick = speakJp;
   $("answerBtn").onclick = () => showAnswer(true);
+  $("soundTestBtn").onclick = () => {
+  speak("Can you hear me?", "en-US", 0.8);
+};
   $("startBtn").onclick = () => {
   $("startOverlay").style.display = "none";
   $("gameArea").style.display = "block";
