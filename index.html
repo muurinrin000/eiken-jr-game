@@ -331,10 +331,15 @@ if (voice) u.voice = voice;
   $("slowBtn2").onclick = speakEnSlow;
   $("jpBtn").onclick = speakJp;
   $("answerBtn").onclick = () => showAnswer(true);
-  $("nextBtn").onclick = () => {
-    questionIndex++;
+$("nextBtn").onclick = () => {
+  questionIndex++;
+
+  if (questionIndex >= words.length) {
+    showResult();
+  } else {
     render();
-  };
+  }
+};
 
   if("speechSynthesis" in window){
     speechSynthesis.getVoices();
@@ -343,6 +348,51 @@ if (voice) u.voice = voice;
 
   render();
 })();
+
+  function showResult(){
+  document.querySelector(".image-area").style.display = "none";
+  document.querySelector(".tap-note").style.display = "none";
+  document.querySelectorAll(".question-title").forEach(el => el.style.display = "none");
+  $("jpChoices").style.display = "none";
+  $("enChoices").style.display = "none";
+  $("feedback").style.display = "none";
+  $("stars").style.display = "none";
+  $("answerBtn").style.display = "none";
+  $("answerBox").style.display = "none";
+  $("nextBtn").style.display = "none";
+
+  $("resultScreen").style.display = "block";
+  $("finalScore").textContent = score;
+  $("totalScore").textContent = words.length;
+
+  if(score === words.length){
+    $("resultMessage").textContent = "すごい！ぜんぶ正解！";
+  }else if(score >= Math.ceil(words.length * 0.7)){
+    $("resultMessage").textContent = "よくできました！";
+  }else{
+    $("resultMessage").textContent = "もう一回やって覚えよう！";
+  }
+}
+
+$("restartBtn").onclick = () => {
+  questionIndex = 0;
+  score = 0;
+  $("score").textContent = score;
+
+  document.querySelector(".image-area").style.display = "grid";
+  document.querySelector(".tap-note").style.display = "block";
+  document.querySelectorAll(".question-title").forEach(el => el.style.display = "block");
+  $("jpChoices").style.display = "grid";
+  $("enChoices").style.display = "grid";
+  $("feedback").style.display = "block";
+  $("stars").style.display = "block";
+  $("answerBtn").style.display = "block";
+  $("nextBtn").style.display = "block";
+  $("resultScreen").style.display = "none";
+
+  render();
+};
+  
 </script>
 </body>
 </html>
