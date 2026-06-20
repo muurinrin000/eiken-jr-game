@@ -154,13 +154,25 @@
       const u = new SpeechSynthesisUtterance(text);
       u.lang = lang;
       u.rate = rate;
-      u.pitch = 1;
+      u.pitch = 1.15;
       u.volume = 1;
 
       const voices = speechSynthesis.getVoices();
-      const voice = voices.find(v => v.lang === lang) || voices.find(v => v.lang && v.lang.indexOf(lang.split("-")[0]) === 0);
-      if(voice) u.voice = voice;
+let voice;
 
+if (lang === "en-US") {
+  voice =
+    voices.find(v => v.name.includes("Samantha")) ||
+    voices.find(v => v.name.includes("Karen")) ||
+    voices.find(v => v.lang === "en-US");
+} else if (lang === "ja-JP") {
+  voice =
+    voices.find(v => v.lang === "ja-JP") ||
+    voices.find(v => v.lang.startsWith("ja"));
+}
+
+if (voice) u.voice = voice;
+      
       u.onstart = () => setStatus("再生中：" + text);
       u.onend = () => setStatus("再生完了：" + text);
       u.onerror = () => setStatus("音声がブロックされました。Safariで開いて確認してください。");
