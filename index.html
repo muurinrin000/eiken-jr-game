@@ -299,10 +299,24 @@ if (voice) u.voice = voice;
   function speakEnNormal(){ speak(current.en, "en-US", 0.85); }
   function speakEnSlow(){ speak(current.en, "en-US", 0.30); }
   function speakJp(){ speak(current.jp, "ja-JP", 0.9); }
-  function speakBoth(){
-    speakEnNormal();
-    setTimeout(() => speakJp(), 900);
-  }
+function speakBoth(){
+  if(!("speechSynthesis" in window)) return;
+
+  speechSynthesis.cancel();
+
+  const en = new SpeechSynthesisUtterance(current.en);
+  en.lang = "en-US";
+  en.rate = 0.85;
+  en.pitch = 1.3;
+
+  const jp = new SpeechSynthesisUtterance(current.jp);
+  jp.lang = "ja-JP";
+  jp.rate = 0.9;
+  jp.pitch = 1.3;
+
+  speechSynthesis.speak(en);
+  speechSynthesis.speak(jp);
+}
 
   function choiceButton(label, value, correct, type){
     const btn = document.createElement("button");
