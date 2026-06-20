@@ -356,6 +356,9 @@ window.scrollTo({
   function showResult(){
   document.querySelector(".image-area").style.display = "none";
   document.querySelector(".tap-note").style.display = "none";
+  document.querySelectorAll(".sound-row").forEach(el => {
+  el.style.display = "none";
+});
   document.querySelectorAll(".question-title").forEach(el => el.style.display = "none");
   $("jpChoices").style.display = "none";
   $("enChoices").style.display = "none";
