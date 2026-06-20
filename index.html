@@ -91,6 +91,67 @@
   margin-top:50px;
   margin-bottom:6px;
 }
+  .info-box{
+  margin-top:28px;
+  background:#fffdf2;
+  border:2px dashed #ffcf5a;
+  border-radius:24px;
+  padding:18px;
+  text-align:left;
+}
+
+.info-title{
+  font-size:20px;
+  font-weight:900;
+  color:#b86b00;
+  margin-bottom:14px;
+}
+
+.info-item{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  padding:12px 0;
+  border-bottom:1px dashed #f3d28a;
+}
+
+.info-item:last-child{
+  border-bottom:0;
+}
+
+.info-icon{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#edf6f9;
+  font-size:24px;
+  flex-shrink:0;
+}
+
+.info-text strong{
+  display:block;
+  font-size:16px;
+  margin-bottom:3px;
+}
+
+.info-text span{
+  color:#607089;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.target-box{
+  margin-top:14px;
+  background:#edf6f9;
+  border-radius:16px;
+  padding:10px;
+  text-align:center;
+  font-weight:900;
+  color:#40516b;
+}
+  
 
 </style>
 </head>
@@ -133,6 +194,37 @@
 
     
 </div>
+
+<div class="info-box">
+  <div class="info-title">⭐ このゲームで学べること</div>
+
+  <div class="info-item">
+    <div class="info-icon">📖</div>
+    <div class="info-text">
+      <strong>かんたんな英単語8問</strong>
+      <span>英検Jr. ブロンズレベルの単語を学べます。</span>
+    </div>
+  </div>
+
+  <div class="info-item">
+    <div class="info-icon">🔊</div>
+    <div class="info-text">
+      <strong>音声つきで発音練習</strong>
+      <span>ふつうとゆっくりの音声を聞けます。</span>
+    </div>
+  </div>
+
+  <div class="info-item">
+    <div class="info-icon">💡</div>
+    <div class="info-text">
+      <strong>日本語と英語の意味を覚える練習</strong>
+      <span>絵を見ながら楽しく学べます。</span>
+    </div>
+  </div>
+
+  <div class="target-box">👥 対象：4〜8歳（幼児〜小学校低学年向け）</div>
+</div>
+    
     
 <div id="gameArea" style="display:none;">
 <div class="top">
