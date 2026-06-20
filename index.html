@@ -107,7 +107,7 @@
     <button id="answerBtn" class="answer-btn" type="button">答えを見る</button>
     <div id="answerBox" class="answer"></div>
         <div class="sound-row">
-      <button id="slowBtn" type="button" class="slow">🐢 ゆっくり</button>
+      <button id="slowBtn2" type="button" class="slow">🐢 ゆっくり</button>
       <button id="jpBtn" type="button">🔊 日本語</button>
     </div>
     
@@ -277,6 +277,7 @@ if (voice) u.voice = voice;
 
   $("imageBtn").onclick = speakEnNormal;
   $("slowBtn").onclick = speakEnSlow;
+  $("slowBtn2").onclick = speakEnSlow;
   $("jpBtn").onclick = speakJp;
   $("answerBtn").onclick = () => showAnswer(true);
   $("nextBtn").onclick = () => {
