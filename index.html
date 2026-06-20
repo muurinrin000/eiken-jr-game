@@ -365,13 +365,17 @@ $("nextBtn").onclick = () => {
     showResult();
   } else {
     render();
+
+    setTimeout(() => {
+      speakEnNormal();
+    }, 300);
   }
 
-window.scrollTo({
-  top: 0,
-  behavior: "smooth"
-});
-  };
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+};
 
   if("speechSynthesis" in window){
     speechSynthesis.getVoices();
