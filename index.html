@@ -68,6 +68,18 @@
   .answer .jp{font-size:28px;font-weight:900;}
   .answer .en{font-size:28px;font-weight:900;color:#156082;}
   .stars{text-align:center;font-size:22px;margin-top:6px;}
+.sound-large{
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+}
+
+.sound-large button{
+  min-height:70px;
+  font-size:28px;
+  font-weight:900;
+  border-radius:24px;
+}
+
 </style>
 </head>
 <body>
@@ -89,9 +101,15 @@
     </div>
     <div class="tap-note">絵をタップすると、アメリカ英語で発音します</div>
 
-        <div class="sound-row">
-      <button id="slowBtn" type="button" class="slow">🐢 ゆっくり</button>
-    </div>
+<div class="sound-row sound-large">
+  <button id="normalBtn" type="button">
+    🔊 ふつう
+  </button>
+
+  <button id="slowBtn" type="button" class="slow">
+    🐢 ゆっくり
+  </button>
+</div>
     
     <div class="question-title">日本語はどれ？</div>
     <div id="jpChoices" class="choice-grid"></div>
@@ -329,6 +347,7 @@ if (voice) u.voice = voice;
   $("imageBtn").onclick = speakEnNormal;
   $("slowBtn").onclick = speakEnSlow;
   $("slowBtn2").onclick = speakEnSlow;
+  $("normalBtn").onclick = speakEnNormal;
   $("jpBtn").onclick = speakJp;
   $("answerBtn").onclick = () => showAnswer(true);
 $("nextBtn").onclick = () => {
