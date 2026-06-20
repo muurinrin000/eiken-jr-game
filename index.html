@@ -302,8 +302,6 @@ if (voice) u.voice = voice;
 function speakBoth(){
   if(!("speechSynthesis" in window)) return;
 
-  speechSynthesis.cancel();
-
   const en = new SpeechSynthesisUtterance(current.en);
   en.lang = "en-US";
   en.rate = 0.85;
