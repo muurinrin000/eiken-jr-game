@@ -372,6 +372,10 @@ window.scrollTo({
 
   render();
 
+  setTimeout(() => {
+  speakEnNormal();
+}, 600);
+
   function showResult(){
   document.querySelector(".image-area").style.display = "none";
   document.querySelector(".tap-note").style.display = "none";
