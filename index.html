@@ -94,6 +94,23 @@
   <div id="startOverlay" style="text-align:center; padding:24px;">
   <div style="font-size:64px;">🎧</div>
   <h2 style="font-size:28px;">音を聞いてはじめよう</h2>
+
+   <button
+
+    id="soundTestBtn"
+
+    class="answer-btn"
+
+    type="button"
+
+    style="margin-bottom:12px;"
+
+  >
+
+    🔊 音が聴こえるかな？
+  </button>
+
+
   <button id="startBtn" class="next-btn" type="button">スタート</button>
 </div>
     
@@ -148,6 +165,10 @@
 </div>
 
 <script>
+$("soundTestBtn").onclick = () => {
+  speak("Can you hear me?", "en-US", 0.8);
+};
+  
 (function(){
   const words = [
     { icon:"🍎", en:"apple", jp:"りんご" },
