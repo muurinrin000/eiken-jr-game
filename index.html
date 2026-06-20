@@ -425,7 +425,15 @@ $("restartBtn").onclick = () => {
 
   document.querySelector(".image-area").style.display = "grid";
   document.querySelector(".tap-note").style.display = "block";
-  document.querySelectorAll(".question-title").forEach(el => el.style.display = "block");
+
+  document.querySelectorAll(".sound-row").forEach(el => {
+  el.style.display = "grid";
+});
+  document.querySelectorAll(".question-title").forEach(el => {
+    el.style.display = "block";
+  });
+
+ 
   $("jpChoices").style.display = "grid";
   $("enChoices").style.display = "grid";
   $("feedback").style.display = "block";
@@ -435,6 +443,12 @@ $("restartBtn").onclick = () => {
   $("resultScreen").style.display = "none";
 
   render();
+
+setTimeout(() => {
+
+    speakEnNormal();
+
+  }, 300);
 
 };
 
