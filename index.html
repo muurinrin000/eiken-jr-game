@@ -358,6 +358,12 @@ if (voice) u.voice = voice;
   $("normalBtn").onclick = speakEnNormal;
   $("jpBtn").onclick = speakJp;
   $("answerBtn").onclick = () => showAnswer(true);
+  $("startBtn").onclick = () => {
+  $("startOverlay").style.display = "none";
+  $("gameArea").style.display = "block";
+  speakEnNormal();
+};
+  
 $("nextBtn").onclick = () => {
   questionIndex++;
 
@@ -433,11 +439,7 @@ $("restartBtn").onclick = () => {
   $("resultScreen").style.display = "none";
 
   render();
-  $("startBtn").onclick = () => {
-  $("startOverlay").style.display = "none";
-  $("gameArea").style.display = "block";
-  speakEnNormal();
-};
+
 };
 
 })();
