@@ -431,7 +431,8 @@ $("nextBtn").onclick = () => {
 
   function showResult(){
   document.querySelector(".image-area").style.display = "none";
-  document.querySelector(".tap-note").style.display = "none";
+const tapNote = document.querySelector(".tap-note");
+if (tapNote) tapNote.style.display = "none";
   document.querySelectorAll(".sound-row").forEach(el => {
   el.style.display = "none";
 });
@@ -463,7 +464,8 @@ $("restartBtn").onclick = () => {
   $("score").textContent = score;
 
   document.querySelector(".image-area").style.display = "grid";
-  document.querySelector(".tap-note").style.display = "block";
+const tapNote = document.querySelector(".tap-note");
+if (tapNote) tapNote.style.display = "block";
 
   document.querySelectorAll(".sound-row").forEach(el => {
   el.style.display = "grid";
