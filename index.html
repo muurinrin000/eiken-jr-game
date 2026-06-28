@@ -520,7 +520,7 @@ if(
   speakEnNormal();
 };
   
-$("nextBtn").onclick = () => {
+function nextQuestion(){
   questionIndex++;
 
   if (questionIndex >= words.length) {
@@ -534,10 +534,13 @@ $("nextBtn").onclick = () => {
   }
 
   window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+    top:0,
+    behavior:"smooth"
   });
-};
+}
+
+  $("nextBtnTop").onclick = nextQuestion;
+$("nextBtnBottom").onclick = nextQuestion;
 
   if("speechSynthesis" in window){
     speechSynthesis.getVoices();
